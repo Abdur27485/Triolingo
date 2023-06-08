@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
     return (
@@ -25,7 +26,7 @@ const Navbar = () => {
                         <a className='cursor-pointer'>Home</a>
                     </li>
                     <li>
-                        <a className='cursor-pointer'>Instructors</a>
+                        <Link to={'/instructors'} className='cursor-pointer'>Instructors</Link>
                     </li>
                     <li>
                         <a className='cursor-pointer'>Classes</a>
