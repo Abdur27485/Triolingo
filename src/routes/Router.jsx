@@ -3,6 +3,7 @@ import Primary from '../layouts/Primary'
 import Home from "../pages/Home";
 import Instructors from "../pages/Instructors";
 import Classes from "../pages/Classes";
+import Login from "../pages/Login";
 
 const router = createBrowserRouter([
     {
@@ -20,6 +21,10 @@ const router = createBrowserRouter([
             {
                 path: '/classes',
                 element: <Classes></Classes>
+            },
+            {
+                path: '/login',
+                element: <Login></Login>
             }
         ]
     }
