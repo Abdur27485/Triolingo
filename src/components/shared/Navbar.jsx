@@ -3,10 +3,10 @@ import { Link } from 'react-router-dom';
 
 const Navbar = () => {
     return (
-        <div className='max-w-7xl mx-auto px-[16px] flex flex-row justify-between items-center'>
+        <div className='max-w-7xl mx-auto px-[16px] flex flex-row justify-between items-center py-6'>
             {/* Logo */}
             <div className='flex flex-row-reverse'>
-                <h1 className='text-4xl'>Triolingo</h1>
+                <h1 className='text-4xl font-mono font-extrabold'>Triolingo</h1>
                 {/* Navigation Links small */}
                 <div className="dropdown lg:hidden">
                     <label tabIndex={0} className="btn btn-ghost btn-circle">
@@ -23,22 +23,22 @@ const Navbar = () => {
             <div>
                 <ul className='hidden lg:flex gap-4'>
                     <li>
-                        <a className='cursor-pointer'>Home</a>
+                        <Link to={'/'} className='cursor-pointer btn btn-ghost'>Home</Link>
                     </li>
                     <li>
-                        <Link to={'/instructors'} className='cursor-pointer'>Instructors</Link>
+                        <Link to={'/instructors'} className='cursor-pointer btn btn-ghost'>Instructors</Link>
                     </li>
                     <li>
-                        <Link to={'/classes'} className='cursor-pointer'>Classes</Link>
+                        <Link to={'/classes'} className='cursor-pointer btn btn-ghost'>Classes</Link>
                     </li>
                     <li>
-                        <a className='cursor-pointer'>Dashboard</a>
+                        <a className='cursor-pointer btn btn-ghost'>Dashboard</a>
                     </li>
                 </ul>
             </div>
             {/* Navbar-end */}
             <div>
-                <button className='btn btn-outline'>Login</button>
+                <button className='btn btn-outline px-10 bg-green-500 border-none text-white hover:bg-green-600'>Login</button>
             </div>
         </div>
     );
