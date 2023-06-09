@@ -27,17 +27,17 @@ const Login = () => {
                             <label className="label">
                                 <span className='label-text font-semibold lg:text-xl'>Email</span>
                             </label>
-                            <input type="text" {...register("email")} className="input rounded-none input-bordered input-primary" />
+                            <input type="text" {...register("email")} className="input input-bordered input-primary" />
                         </div>
                         <div className="form-control">
                             <label className="label">
                                 <span className='label-text font-semibold lg:text-xl'>Password</span>
                                 <span className="label-text-alt">i</span>
                             </label>
-                            <input type="password" {...register("password")} className="input rounded-none input-bordered input-primary" />
+                            <input type="password" {...register("password")} className="input input-bordered input-primary" />
                         </div>
-                        <input type="submit" className='btn rounded-none btn-primary w-full mt-6' value="Login Now" />
-                        <button className='py-2 w-full border-2 border-black mt-6 flex justify-center items-center gap-4 transition-all duration-100 hover:rounded-3xl'>
+                        <input type="submit" className='btn btn-primary w-full mt-6 rounded-3xl' value="Login Now" />
+                        <button className='py-2 w-full border-2 border-black mt-6 flex justify-center items-center gap-4 transition-all duration-100 rounded-3xl'>
                             <FcGoogle className='h-6 w-6'></FcGoogle>
                             <span className='lg:text-xl'>Continue with Google</span>
                             </button>
