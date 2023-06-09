@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { useForm } from "react-hook-form";
 import { AuthContext } from '../providers/AuthProvider';
 import {FcGoogle} from 'react-icons/fc'
+import { Link } from 'react-router-dom';
 
 const Login = () => {
     const { register, handleSubmit } = useForm();
@@ -40,6 +41,7 @@ const Login = () => {
                             <FcGoogle className='h-6 w-6'></FcGoogle>
                             <span className='lg:text-xl'>Continue with Google</span>
                             </button>
+                            <p className='mt-2'>Don't have an account? <Link to={'/register'} className='link link-primary'>Register</Link></p>
                     </form>
                 </div>
             </div>

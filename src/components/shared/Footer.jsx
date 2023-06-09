@@ -7,7 +7,7 @@ const Footer = () => {
                 {/* left/start column */}
                 <div>
                     <div>
-                        <h2 className='text-4xl'>Triolingo</h2>
+                        <h2 className='text-4xl font-mono font-extrabold bg-primary text-white px-2 inline-block'>Triolingo</h2>
                         <p className='my-4'>Download Our Mobile App</p>
                         <div className='flex flex-wrap justify-center gap-4'>
                             <img src="https://10minuteschool.com/_next/image/?url=%2Fimages%2Ffooter%2Fgoogle-play-icon.png&w=256&q=75" alt="" />

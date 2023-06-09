@@ -6,7 +6,7 @@ const Navbar = () => {
         <div className='max-w-7xl mx-auto px-[16px] flex flex-row justify-between items-center py-2'>
             {/* Logo */}
             <div className='flex flex-row-reverse'>
-                <h1 className='text-2xl lg:text-4xl font-mono font-extrabold'>Triolingo</h1>
+                <h1 className='text-2xl lg:text-4xl font-mono font-extrabold bg-primary text-white px-2'>Triolingo</h1>
                 {/* Navigation Links small */}
                 
             </div>
