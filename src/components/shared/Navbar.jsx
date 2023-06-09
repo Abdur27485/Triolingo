@@ -3,10 +3,10 @@ import { Link } from 'react-router-dom';
 
 const Navbar = () => {
     return (
-        <div className='max-w-7xl mx-auto px-[16px] flex flex-row justify-between items-center py-6'>
+        <div className='max-w-7xl mx-auto px-[16px] flex flex-row justify-between items-center py-2'>
             {/* Logo */}
             <div className='flex flex-row-reverse'>
-                <h1 className='text-4xl font-mono font-extrabold'>Triolingo</h1>
+                <h1 className='text-2xl lg:text-4xl font-mono font-extrabold'>Triolingo</h1>
                 {/* Navigation Links small */}
                 
             </div>
@@ -29,7 +29,7 @@ const Navbar = () => {
             </div>
             {/* Navbar-end */}
             <div>
-                <Link to={'/login'} className='btn btn-outline px-10 bg-green-500 border-none text-white hover:bg-green-600'>Login</Link>
+                <Link to={'/login'} className=' rounded-lg py-1 lg:text-xl lg:py-2 px-5 inline-block lg:px-10 bg-green-500 border-none text-white hover:bg-green-600'>Login</Link>
             </div>
         </div>
     );

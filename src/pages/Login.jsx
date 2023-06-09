@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { useForm } from "react-hook-form";
 import { AuthContext } from '../providers/AuthProvider';
+import {FcGoogle} from 'react-icons/fc'
 
 const Login = () => {
     const { register, handleSubmit } = useForm();
@@ -16,11 +17,11 @@ const Login = () => {
         <div className='max-w-7xl mx-auto px-4'>
             <div className='mt-10 grid grid-cols-1 gap-y-4 lg:grid-cols-2 gap-16'>
                 <div>
-                    <img src="https://o.remove.bg/downloads/0c370d30-8ea1-4e84-8d0f-d3d812b4a5f0/login-concept-illustration_114360-739-removebg-preview.png" alt="" />
+                    <img src="https://i.ibb.co/RgQq8Xj/5639782-2942004-removebg-preview.png" alt="" />
                 </div>
                 <div>
-                    <form onSubmit={handleSubmit(handleLogin)} className='p-10 bg-base-200  shadow-2xl rounded-2xl'>
-                    <h1 className=' text-4xl font-bold mb-6'>Nice to see you again.</h1>
+                    <form onSubmit={handleSubmit(handleLogin)} className='lg:p-10 lg:bg-base-200  lg:shadow-2xl lg:rounded-2xl'>
+                    <h1 className=' text-4xl font-bold mb-6'>Nice to see you again.&#128516;</h1>
                         <div className="form-control mb-4">
                             <label className="label">
                                 <span className='label-text font-semibold lg:text-xl'>Email</span>
@@ -35,6 +36,10 @@ const Login = () => {
                             <input type="password" {...register("password")} className="input rounded-none input-bordered input-primary" />
                         </div>
                         <input type="submit" className='btn rounded-none btn-primary w-full mt-6' value="Login Now" />
+                        <button className='py-2 w-full border-2 border-black mt-6 flex justify-center items-center gap-4 transition-all duration-100 hover:rounded-3xl'>
+                            <FcGoogle className='h-6 w-6'></FcGoogle>
+                            <span className='lg:text-xl'>Continue with Google</span>
+                            </button>
                     </form>
                 </div>
             </div>

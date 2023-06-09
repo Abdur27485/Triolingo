@@ -9,7 +9,7 @@ const Footer = () => {
                     <div>
                         <h2 className='text-4xl'>Triolingo</h2>
                         <p className='my-4'>Download Our Mobile App</p>
-                        <div className='flex gap-4'>
+                        <div className='flex flex-wrap justify-center gap-4'>
                             <img src="https://10minuteschool.com/_next/image/?url=%2Fimages%2Ffooter%2Fgoogle-play-icon.png&w=256&q=75" alt="" />
                             <img src="https://10minuteschool.com/_next/image/?url=%2Fimages%2Ffooter%2Fios-store-icon.png&w=256&q=75" alt="" />
                         </div>
