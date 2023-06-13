@@ -3,15 +3,17 @@ import { useForm } from "react-hook-form";
 import { AuthContext } from '../providers/AuthProvider';
 import {FcGoogle} from 'react-icons/fc'
 import { Link } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 const Login = () => {
     const { register, handleSubmit } = useForm();
-    const { createUser } = useContext(AuthContext);
+    const { loginUser } = useContext(AuthContext);
     const handleLogin = formData => {
         console.log(formData)
-        createUser(formData.email, formData.password)
+        loginUser(formData.email, formData.password)
             .then(result => {
                 console.log(result.user)
+                Swal.fire(`Welcome, ${result.user?.displayName}`);
             })
     };
     return (
@@ -32,7 +34,6 @@ const Login = () => {
                         <div className="form-control">
                             <label className="label">
                                 <span className='label-text font-semibold lg:text-xl'>Password</span>
-                                <span className="label-text-alt">i</span>
                             </label>
                             <input type="password" {...register("password")} className="input input-bordered input-primary" />
                         </div>

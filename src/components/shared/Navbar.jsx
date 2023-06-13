@@ -1,14 +1,16 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../providers/AuthProvider';
 
 const Navbar = () => {
+    const { user, logOutUser } = useContext(AuthContext)
     return (
         <div className='max-w-7xl mx-auto px-[16px] flex flex-row justify-between items-center py-2'>
             {/* Logo */}
             <div className='flex flex-row-reverse'>
                 <h1 className='text-2xl lg:text-4xl font-mono font-extrabold bg-primary text-white px-2'>Triolingo</h1>
                 {/* Navigation Links small */}
-                
+
             </div>
             {/* Navigation Links Large */}
             <div>
@@ -29,7 +31,13 @@ const Navbar = () => {
             </div>
             {/* Navbar-end */}
             <div>
-                <Link to={'/login'} className=' rounded-lg py-1 lg:text-xl lg:py-2 px-5 inline-block lg:px-10 bg-green-500 border-none text-white hover:bg-green-600'>Login</Link>
+                {
+                    user ?
+                    <p>{user.displayName} <button className='btn btn-ghost' onClick={() => logOutUser()}>Log Out</button></p>
+                        
+                        :
+                        <Link to={'/login'} className=' rounded-lg py-1 lg:text-xl lg:py-2 px-5 inline-block lg:px-10 bg-green-500 border-none text-white hover:bg-green-600'>Login</Link>
+                }
             </div>
         </div>
     );

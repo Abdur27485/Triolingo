@@ -4,8 +4,10 @@ import { Pagination, Navigation } from "swiper";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
+import { Navigate, useNavigate } from 'react-router-dom';
 
 const Slider = () => {
+    const navigate = useNavigate();
     return (
         <div>
             <Swiper
@@ -25,8 +27,8 @@ const Slider = () => {
                         <div className="hero-content text-center text-neutral-content">
                             <div className="max-w-4xl">
                                 <h1 className="mb-5 text-5xl font-bold leading-normal">Learn a new language and open up a world of possibilities</h1>
-                                <button className="btn btn-primary">Enroll Now</button>
-                            </div>
+                                <button onClick={() => navigate('/classes')} className="btn btn-primary">Enroll Now</button>
+                           </div>
                         </div>
                     </div>
                 </SwiperSlide>
