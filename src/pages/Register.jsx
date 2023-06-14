@@ -5,7 +5,6 @@ import { FcGoogle } from 'react-icons/fc';
 import { FiInfo } from 'react-icons/fi';
 import { Link, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2'
-import { data } from 'autoprefixer';
 
 const Register = () => {
     const navigate = useNavigate();
