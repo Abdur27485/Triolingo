@@ -64,9 +64,20 @@ const Register = () => {
     const handleGoogleSignIn = () => {
         googleSignIn()
             .then(result => {
-                console.log(result.user)
-                Swal.fire(`Welcome, ${result.user?.displayName}`)
-                navigate('/')
+                const userInfo = { name: result.user.displayName, email: result.user.email };
+                fetch('https://triolingo-27485-abdur27485.vercel.app/users', {
+                    method: 'POST',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(userInfo)
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data)
+                        Swal.fire(`Welcome, ${result.user?.displayName}`)
+                        navigate('/')
+                    })
             })
     }
     return (
