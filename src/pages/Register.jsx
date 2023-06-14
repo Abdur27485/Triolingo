@@ -16,7 +16,7 @@ const Register = () => {
         console.log(data.image[0])
 
         const imgUploadToken = import.meta.env.VITE_imgUploadToken;
-        const imgHostingUrl = `https://api.imgbb.com/1/upload?expiration=600&key=${imgUploadToken}`;
+        const imgHostingUrl = `https://api.imgbb.com/1/upload?key=${imgUploadToken}`;
 
         const formImg = new FormData();
         formImg.append('image', data.image[0])

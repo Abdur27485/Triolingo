@@ -8,7 +8,9 @@ const Navbar = () => {
         <div className='max-w-7xl mx-auto px-[16px] flex flex-row justify-between items-center py-2'>
             {/* Logo */}
             <div className='flex flex-row-reverse'>
-                <h1 className='text-2xl lg:text-4xl font-mono font-extrabold bg-primary text-white px-2'>Triolingo</h1>
+                <Link to={'/'}>
+                    <h1 className='text-2xl lg:text-4xl font-mono font-extrabold bg-primary text-white px-2'>Triolingo</h1>
+                    </Link>
                 {/* Navigation Links small */}
 
             </div>
@@ -33,8 +35,12 @@ const Navbar = () => {
             <div>
                 {
                     user ?
-                    <p>{user.displayName} <button className='btn btn-ghost' onClick={() => logOutUser()}>Log Out</button></p>
-                        
+                        <>
+                            <div className='flex gap-4 items-center'>
+                                <img src={`${user?.photoURL}`} className='w-10 h-10 rounded-full' alt="" />
+                                <button className='btn btn-ghost' onClick={() => logOutUser()}>Log Out</button>
+                            </div>
+                        </>
                         :
                         <Link to={'/login'} className=' rounded-lg py-1 lg:text-xl lg:py-2 px-5 inline-block lg:px-10 bg-green-500 border-none text-white hover:bg-green-600'>Login</Link>
                 }
