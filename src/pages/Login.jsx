@@ -2,10 +2,11 @@ import React, { useContext } from 'react';
 import { useForm } from "react-hook-form";
 import { AuthContext } from '../providers/AuthProvider';
 import {FcGoogle} from 'react-icons/fc'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
 const Login = () => {
+    const navigate = useNavigate();
     const { register, handleSubmit } = useForm();
     const { loginUser } = useContext(AuthContext);
     const handleLogin = formData => {
@@ -14,6 +15,7 @@ const Login = () => {
             .then(result => {
                 console.log(result.user)
                 Swal.fire(`Welcome, ${result.user?.displayName}`);
+                    navigate('/')
             })
     };
     return (

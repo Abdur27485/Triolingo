@@ -12,7 +12,7 @@ const Register = () => {
     const [tooltipOpen, setTooltipOpen] = useState(false);
     const { register, handleSubmit, formState, watch } = useForm();
     const { errors } = formState;
-    const { createUser, updateUserProfile,logOutUser,loginUser } = useContext(AuthContext);
+    const { createUser, updateUserProfile, logOutUser, loginUser, googleSignIn } = useContext(AuthContext);
     const handleRegister = data => {
         console.log(data.image[0])
 
@@ -35,22 +35,43 @@ const Register = () => {
                         const loggedUser = result.user;
                         updateUserProfile(data.name, imgUrl.data.display_url)
                             .then(() => {
-                                logOutUser()
-                                .then(() =>{
-                                    loginUser(data.email, data.Password)
-                                    .then( result =>{
-                                        Swal.fire(`Welcome, ${result.user?.displayName}`)
-                                    })
-                                    navigate('/')
+                                const userInfo = { name: loggedUser.displayName, email: loggedUser.email };
+                                fetch('https://triolingo-27485-abdur27485.vercel.app/users', {
+                                    method: 'POST',
+                                    headers: {
+                                        'content-type': 'application/json'
+                                    },
+                                    body: JSON.stringify(userInfo)
                                 })
+                                    .then(res => res.json())
+                                    .then(result => {
+                                        console.log(result)
+                                        logOutUser()
+                                            .then(() => {
+                                                loginUser(data.email, data.Password)
+                                                    .then(result => {
+                                                        Swal.fire(`Welcome, ${result.user?.displayName}`)
+                                                    })
+                                                navigate('/')
+                                            })
+                                    })
                             })
                     })
             })
 
     };
+
+    const handleGoogleSignIn = () => {
+        googleSignIn()
+            .then(result => {
+                console.log(result.user)
+                Swal.fire(`Welcome, ${result.user?.displayName}`)
+                navigate('/')
+            })
+    }
     return (
         <div className='max-w-7xl mx-auto px-4'>
-            <h1 className='text-center text-2xl lg:text-4xl font-semibold mt-16'>Join the millions learning foreign languages with <span className='font-mono font-extrabold bg-primary text-white px-2'>Triolingo</span> </h1>
+            <h1 className='text-center text-2xl lg:text-4xl font-semibold mt-12'>Join the millions learning foreign languages with <span className='font-mono font-extrabold bg-primary text-white px-2'>Triolingo</span> </h1>
             <div className='bg-base-200 px-6 py-4 shadow-lg max-w-3xl mx-auto mt-10 rounded-md'>
                 <form onSubmit={handleSubmit(handleRegister)} className='grid grid-cols-1 lg:gap-4 lg:grid-cols-2'>
                     <div className="form-control mb-4">
@@ -127,11 +148,11 @@ const Register = () => {
                         })} className="input input-bordered input-primary rounded-md" />
                         <p className='text-red-700'>{errors.confirmPassword?.message}</p>
                     </div>
-                    <div className="form-control">
-                        <input type="file" {...register('image')} />
+                    <div className="form-control mt-4 lg:col-span-2">
+                        <input type="file" {...register('image')} className='file-input' />
                     </div>
                     <input type="submit" className='btn rounded-3xl btn-primary w-full mt-6' value="Login Now" />
-                    <div className='py-2 cursor-pointer w-full border-2 border-black mt-6 flex justify-center items-center gap-4 transition-all duration-100 rounded-3xl'>
+                    <div onClick={handleGoogleSignIn} className='btn py-2 cursor-pointer w-full border-2 border-black mt-6 flex justify-center items-center gap-4 transition-all duration-100 rounded-3xl'>
                         <FcGoogle className='h-6 w-6'></FcGoogle>
                         <span className='lg:text-xl'>Continue with Google</span>
                     </div>
