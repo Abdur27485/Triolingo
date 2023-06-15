@@ -27,7 +27,7 @@ const Navbar = () => {
                         <Link to={'/classes'} className='cursor-pointer btn btn-ghost'>Classes</Link>
                     </li>
                     <li>
-                        <a className='cursor-pointer btn btn-ghost'>Dashboard</a>
+                        <Link to={'/dashboard'} className='cursor-pointer btn btn-ghost'>Dashboard</Link>
                     </li>
                 </ul>
             </div>
