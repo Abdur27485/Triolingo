@@ -34,7 +34,7 @@ const Register = () => {
                         const loggedUser = result.user;
                         updateUserProfile(data.name, imgUrl.data.display_url)
                             .then(() => {
-                                const userInfo = { name: loggedUser.displayName, email: loggedUser.email };
+                                const userInfo = { name: loggedUser.displayName, email: loggedUser.email, role: 'student' };
                                 fetch('https://triolingo-27485-abdur27485.vercel.app/users', {
                                     method: 'POST',
                                     headers: {
