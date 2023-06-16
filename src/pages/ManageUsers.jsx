@@ -12,7 +12,7 @@ const ManageUsers = () => {
         <div>
             {
                 allUsers ?
-                    <div className="">
+                    <div className="overflow-x-auto">
                         <table className="table bg-slate-200 w-11/12 mx-auto">
                             {/* head */}
                             <thead className='bg-slate-700 text-white'>
@@ -23,7 +23,6 @@ const ManageUsers = () => {
                                 </tr>
                             </thead>
                             <tbody>
-                                {/* row 1 */}
                                 {
                                     allUsers.map(user => {
                                         const { name, email, role } = user;

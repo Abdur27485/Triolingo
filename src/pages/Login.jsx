@@ -22,7 +22,7 @@ const Login = () => {
     const handleGoogleSignIn = () => {
         googleSignIn()
             .then(result => {
-                const userInfo = { name: result.user.displayName, email: result.user.email };
+                const userInfo = { name: result.user.displayName, email: result.user.email, role : 'student' };
                 fetch('https://triolingo-27485-abdur27485.vercel.app/users', {
                     method: 'POST',
                     headers: {
