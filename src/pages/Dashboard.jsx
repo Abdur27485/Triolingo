@@ -18,19 +18,19 @@ const Dashboard = () => {
     }, [])
     console.log(userDetails)
     return (
-        <div className='lg:px-4 mt-10'>
+        <div className='lg:px-4 lg:mt-10'>
             {userDetails ?
                 <>
                     {
                         userDetails.role === 'admin' &&
                         <div className='grid grid-cols-12'>
                             <div className='col-span-12 lg:col-span-3 bg-base-200'>
-                                <ul>
-                                    <li>
-                                        <NavLink  to={'manageClasses'}>Manage Classes</NavLink>
+                                <ul className='flex lg:block justify-around'>
+                                    <li className='w-full'>
+                                        <NavLink className="w-full hover:bg-base-300 transition duration-100 block px-4 py-2 font-semibold lg:text-2xl" to={'manageClasses'}>Manage Classes</NavLink>
                                     </li>
-                                    <li>
-                                        <NavLink to={'manageUsers'}>Manage Users</NavLink>
+                                    <li className='w-full'>
+                                        <NavLink className="w-full hover:bg-base-300 transition duration-100 block px-4 py-2 font-semibold lg:text-2xl" to={'manageUsers'}>Manage Users</NavLink>
                                     </li>
                                 </ul>
 
