@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
+import Swal from 'sweetalert2';
 
 const ManageSingleClass = ({ singleClass }) => {
     const { register, handleSubmit } = useForm();
@@ -40,7 +41,11 @@ const ManageSingleClass = ({ singleClass }) => {
             .then(res => res.json())
             .then(data => {
                 if(data.modifiedCount > 0){
-
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Successful',
+                        text: 'Feedback Sent!',
+                      })
                 }
             })
 
