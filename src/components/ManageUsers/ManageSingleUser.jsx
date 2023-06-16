@@ -1,12 +1,14 @@
-import React, { createRef, useState } from 'react';
+import React, { createRef, useEffect, useState } from 'react';
 
 const ManageSingleUser = ({ user }) => {
-    const roleRef = createRef(null);
-    const adminBtnRef = createRef(null)
-    const instructorBtnRef = createRef(null)
     const { name, email, role } = user;
+    const [roleState, setRoleState] = useState(null)
 
-    const handleRoleChange = (event, email, updatedRole) => {
+    useEffect(() => {
+        setRoleState(role)
+    }, [])
+
+    const handleRoleChange = (email, updatedRole) => {
         fetch('https://triolingo-27485-abdur27485.vercel.app/user', {
             method: 'PATCH',
             headers: {
@@ -16,14 +18,8 @@ const ManageSingleUser = ({ user }) => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data)
-                roleRef.current.innerText = updatedRole;
-                if (updatedRole === 'admin') {
-                    adminBtnRef.current.disabled = true;
-                }
-                if (updatedRole === 'instructor') {
-                    instructorBtnRef.current.disabled = true;
-                }
+                console.log(data, updatedRole)
+                setRoleState(updatedRole)
             })
     }
     return (
@@ -34,12 +30,13 @@ const ManageSingleUser = ({ user }) => {
                     <div className="text-sm opacity-50">{email}</div>
                 </div>
             </td>
-            <td ref={roleRef}>
-                {role}
+            <td>
+                {roleState}
             </td>
             <th className='flex gap-4 justify-center'>
-                <button ref={adminBtnRef} disabled={role === 'admin' && true} onClick={() => handleRoleChange(email, 'admin')} className="btn">Admin</button>
-                <button ref={instructorBtnRef} disabled={role === 'instructor' && true} onClick={() => handleRoleChange(email, 'instructor')} className="btn">Instructor</button>
+                <button disabled={roleState === 'admin' ? true : false} onClick={() => handleRoleChange(email, 'admin')} className="btn">Admin</button>
+                <button disabled={roleState === 'instructor' ? true : false} onClick={() => handleRoleChange(email, 'instructor')} className="btn">Instructor</button>
+                <button disabled={roleState === 'student' ? true : false} onClick={() => handleRoleChange(email, 'student')} className="btn">Student</button>
             </th>
         </tr>
     );
