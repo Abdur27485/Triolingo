@@ -8,7 +8,7 @@ import Swal from 'sweetalert2';
 const Login = () => {
     const navigate = useNavigate();
     const { register, handleSubmit } = useForm();
-    const { loginUser,googleSignIn } = useContext(AuthContext);
+    const { loginUser, googleSignIn } = useContext(AuthContext);
     const handleLogin = formData => {
         console.log(formData)
         loginUser(formData.email, formData.password)
@@ -22,7 +22,7 @@ const Login = () => {
     const handleGoogleSignIn = () => {
         googleSignIn()
             .then(result => {
-                const userInfo = { name: result.user.displayName, email: result.user.email, role : 'student' };
+                const userInfo = { name: result.user.displayName, email: result.user.email, role: 'student', imgLink: result.user.photoURL };
                 fetch('https://triolingo-27485-abdur27485.vercel.app/users', {
                     method: 'POST',
                     headers: {

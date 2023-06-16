@@ -34,7 +34,7 @@ const Register = () => {
                         const loggedUser = result.user;
                         updateUserProfile(data.name, imgUrl.data.display_url)
                             .then(() => {
-                                const userInfo = { name: loggedUser.displayName, email: loggedUser.email, role: 'student' };
+                                const userInfo = { name: loggedUser.displayName, email: loggedUser.email, role: 'student', imgLink: imgUrl };
                                 fetch('https://triolingo-27485-abdur27485.vercel.app/users', {
                                     method: 'POST',
                                     headers: {
@@ -63,7 +63,7 @@ const Register = () => {
     const handleGoogleSignIn = () => {
         googleSignIn()
             .then(result => {
-                const userInfo = { name: result.user.displayName, email: result.user.email };
+                const userInfo = { name: result.user.displayName, email: result.user.email, role: 'student', imgLink: result.user.photoURL };
                 fetch('https://triolingo-27485-abdur27485.vercel.app/users', {
                     method: 'POST',
                     headers: {
@@ -161,7 +161,7 @@ const Register = () => {
                     <div className="form-control mt-4 lg:col-span-2">
                         <input type="file" {...register('image')} className='file-input' />
                     </div>
-                    <input type="submit" className='btn rounded-3xl btn-primary w-full mt-6' value="Login Now" />
+                    <input type="submit" className='btn rounded-3xl btn-primary w-full mt-6' value="Register Now" />
                     <div onClick={handleGoogleSignIn} className='btn py-2 cursor-pointer w-full border-2 border-black mt-6 flex justify-center items-center gap-4 transition-all duration-100 rounded-3xl'>
                         <FcGoogle className='h-6 w-6'></FcGoogle>
                         <span className='lg:text-xl'>Continue with Google</span>
