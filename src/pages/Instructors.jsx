@@ -15,15 +15,17 @@ const Instructors = () => {
     return (
         <div className='max-w-7xl mx-auto px-4 mt-16'>
             <h1 className='text-5xl font-bold text-center mb-10'>All Instructors</h1>
-            <div className='grid gap-4 gap-y-16 grid-cols-1 lg:grid-cols-3'>
-                {
-                    instructors ? instructors.map(instructor => <InstructorCard data={instructor}></InstructorCard>)
-                        :
-                        <div className='flex justify-center'>
-                            <span className="loading loading-infinity w-24"></span>
-                        </div>
-                }
-            </div>
+            {
+                instructors ? <div className='grid gap-4 gap-y-16 grid-cols-1 lg:grid-cols-3'>
+                    {
+                        instructors?.map(instructor => <InstructorCard data={instructor}></InstructorCard>)
+                    }
+                </div>
+                    :
+                    <div className='flex justify-center'>
+                        <span className="loading loading-infinity w-24"></span>
+                    </div>
+            }
         </div>
     );
 };

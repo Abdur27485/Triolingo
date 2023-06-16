@@ -27,7 +27,7 @@ const Slider = () => {
                         <div className="hero-overlay bg-opacity-60"></div>
                         <div className="hero-content text-center text-neutral-content">
                             <div className="max-w-4xl">
-                                <h1 className="mb-5 text-2xl lg:text-5xl font-bold leading-normal">Open up a world of possibilities</h1>
+                                <h1 className="mb-28 text-2xl lg:text-5xl font-bold leading-normal">Open up a world of possibilities</h1>
                                 <button onClick={() => navigate('/classes')} className="btn btn-primary">Enroll Now</button>
                                 <button className="btn ml-4 btn-outline text-white">Learn More</button>
                            </div>
@@ -39,7 +39,7 @@ const Slider = () => {
                         <div className="hero-overlay bg-opacity-60"></div>
                         <div className="hero-content text-center text-neutral-content">
                             <div className="max-w-4xl">
-                                <h1 className="mb-5 text-2xl lg:text-5xl font-bold leading-normal">Easy-to-use and fun learning platform</h1>
+                                <h1 className="mb-28 text-2xl lg:text-5xl font-bold leading-normal">Easy-to-use and fun learning platform</h1>
                                 <button onClick={() => navigate('/classes')} className="btn btn-primary">Enroll Now</button>
                                 <button className="btn ml-4 btn-outline text-white">Learn More</button>
                            </div>
@@ -51,7 +51,7 @@ const Slider = () => {
                         <div className="hero-overlay bg-opacity-60"></div>
                         <div className="hero-content text-center text-neutral-content">
                             <div className="max-w-4xl">
-                                <h1 className="mb-5 text-2xl lg:text-5xl font-bold leading-normal">Tailored to your individual needs and goals</h1>
+                                <h1 className="mb-28 text-2xl lg:text-5xl font-bold leading-normal">Tailored to your individual needs and goals</h1>
                                 <button onClick={() => navigate('/classes')} className="btn btn-primary">Enroll Now</button>
                                 <button className="btn ml-4 btn-outline text-white">Learn More</button>
                            </div>
@@ -63,7 +63,7 @@ const Slider = () => {
                         <div className="hero-overlay bg-opacity-60"></div>
                         <div className="hero-content text-center text-neutral-content">
                             <div className="max-w-4xl">
-                                <h1 className="mb-5 text-2xl lg:text-5xl font-bold leading-normal">Classes are backed by a satisfaction guarantee</h1>
+                                <h1 className="mb-28 text-2xl lg:text-5xl font-bold leading-normal">Classes are backed by a satisfaction guarantee</h1>
                                 <button onClick={() => navigate('/classes')} className="btn btn-primary">Enroll Now</button>
                                 <button className="btn ml-4 btn-outline text-white">Learn More</button>
                            </div>
@@ -89,7 +89,7 @@ const Slider = () => {
                         <div className="hero-overlay bg-opacity-60"></div>
                         <div className="hero-content text-center text-neutral-content">
                             <div className="max-w-4xl">
-                                <h1 className="mb-5 text-2xl lg:text-5xl font-bold leading-normal">Open up a world of possibilities</h1>
+                                <h1 className="mb-28 text-2xl lg:text-5xl font-bold leading-normal">Open up a world of possibilities</h1>
                                 <button onClick={() => navigate('/classes')} className="btn btn-primary">Enroll Now</button>
                                 <button className="btn ml-4 btn-outline text-white">Learn More</button>
                            </div>
@@ -101,7 +101,7 @@ const Slider = () => {
                         <div className="hero-overlay bg-opacity-60"></div>
                         <div className="hero-content text-center text-neutral-content">
                             <div className="max-w-4xl">
-                                <h1 className="mb-5 text-2xl lg:text-5xl font-bold leading-normal">Easy-to-use and fun learning platform</h1>
+                                <h1 className="mb-28 text-2xl lg:text-5xl font-bold leading-normal">Easy-to-use and fun learning platform</h1>
                                 <button onClick={() => navigate('/classes')} className="btn btn-primary">Enroll Now</button>
                                 <button className="btn ml-4 btn-outline text-white">Learn More</button>
                            </div>
@@ -113,7 +113,7 @@ const Slider = () => {
                         <div className="hero-overlay bg-opacity-60"></div>
                         <div className="hero-content text-center text-neutral-content">
                             <div className="max-w-4xl">
-                                <h1 className="mb-5 text-2xl lg:text-5xl font-bold leading-normal">Tailored to your individual needs and goals</h1>
+                                <h1 className="mb-28 text-2xl lg:text-5xl font-bold leading-normal">Tailored to your individual needs and goals</h1>
                                 <button onClick={() => navigate('/classes')} className="btn btn-primary">Enroll Now</button>
                                 <button className="btn ml-4 btn-outline text-white">Learn More</button>
                            </div>
@@ -125,7 +125,7 @@ const Slider = () => {
                         <div className="hero-overlay bg-opacity-60"></div>
                         <div className="hero-content text-center text-neutral-content">
                             <div className="max-w-4xl">
-                                <h1 className="mb-5 text-2xl lg:text-5xl font-bold leading-normal">Classes are backed by a satisfaction guarantee</h1>
+                                <h1 className="mb-28 text-2xl lg:text-5xl font-bold leading-normal">Classes are backed by a satisfaction guarantee</h1>
                                 <button onClick={() => navigate('/classes')} className="btn btn-primary">Enroll Now</button>
                                 <button className="btn ml-4 btn-outline text-white">Learn More</button>
                            </div>
