@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react';
+import React, { createRef, useEffect, useState } from 'react';
+import ManageSingleUser from '../components/ManageUsers/ManageSingleUser';
 
 const ManageUsers = () => {
     const [allUsers, setAllUsers] = useState(null);
@@ -8,6 +9,7 @@ const ManageUsers = () => {
             .then(res => res.json())
             .then(data => setAllUsers(data))
     }, [])
+
     return (
         <div>
             {
@@ -24,26 +26,7 @@ const ManageUsers = () => {
                             </thead>
                             <tbody>
                                 {
-                                    allUsers.map(user => {
-                                        const { name, email, role } = user;
-                                        return (
-                                            <tr className='hover:bg-slate-300'>
-                                                <td>
-                                                        <div>
-                                                            <div className="font-bold">{name}</div>
-                                                            <div className="text-sm opacity-50">{email}</div>
-                                                        </div>
-                                                </td>
-                                                <td>
-                                                    {role}
-                                                </td>
-                                                <th className='flex gap-4 justify-center'>
-                                                    <button className="btn">Admin</button>
-                                                    <button className="btn">Instructor</button>
-                                                </th>
-                                            </tr>
-                                        )
-                                    })
+                                    allUsers.map(user => <ManageSingleUser user={user}></ManageSingleUser>)
                                 }
                             </tbody>
                         </table>
