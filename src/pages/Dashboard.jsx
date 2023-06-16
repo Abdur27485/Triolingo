@@ -16,7 +16,6 @@ const Dashboard = () => {
             .then(res => res.json())
             .then(data => setUserDetails(data))
     }, [])
-    console.log(userDetails)
     return (
         <div className='lg:px-4 lg:mt-10'>
             {userDetails ?
@@ -42,7 +41,41 @@ const Dashboard = () => {
                     }
                     {
                         userDetails.role === 'student' &&
-                        <div><Outlet></Outlet></div>
+                        <div className='grid grid-cols-12'>
+                        <div className='col-span-12 lg:col-span-3 bg-base-200'>
+                            <ul className='flex lg:block justify-around'>
+                                <li className='w-full'>
+                                    <NavLink className="w-full hover:bg-base-300 transition duration-100 block px-4 py-2 font-semibold lg:text-2xl" to={'manageClasses'}>Selected Classes</NavLink>
+                                </li>
+                                <li className='w-full'>
+                                    <NavLink className="w-full hover:bg-base-300 transition duration-100 block px-4 py-2 font-semibold lg:text-2xl" to={'manageUsers'}>Enrolled Classes</NavLink>
+                                </li>
+                            </ul>
+
+                        </div>
+                        <div className='col-span-12 lg:col-span-9'>
+                            <Outlet></Outlet>
+                        </div>
+                    </div>
+                    }
+                    {
+                        userDetails.role === 'instructor' &&
+                        <div className='grid grid-cols-12'>
+                        <div className='col-span-12 lg:col-span-3 bg-base-200'>
+                            <ul className='flex lg:block justify-around'>
+                                <li className='w-full'>
+                                    <NavLink className="w-full hover:bg-base-300 transition duration-100 block px-4 py-2 font-semibold lg:text-2xl" to={'manageClasses'}>Add Class</NavLink>
+                                </li>
+                                <li className='w-full'>
+                                    <NavLink className="w-full hover:bg-base-300 transition duration-100 block px-4 py-2 font-semibold lg:text-2xl" to={'manageUsers'}>My Classes</NavLink>
+                                </li>
+                            </ul>
+
+                        </div>
+                        <div className='col-span-12 lg:col-span-9'>
+                            <Outlet></Outlet>
+                        </div>
+                    </div>
                     }
                 </>
                 :

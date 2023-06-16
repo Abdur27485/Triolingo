@@ -1,8 +1,26 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
+import { AuthContext } from '../providers/AuthProvider';
+import SingleClass from '../components/Classes/SingleClass';
 
 const Classes = () => {
+    const {user} = useContext(AuthContext)
     const [loadingClasses, setLoadingClasses] = useState(true)
     const [classes, setClasses] = useState([]);
+    const [userDetails, setUserDetails] = useState(null);
+    
+    useEffect(() => {
+        fetch('https://triolingo-27485-abdur27485.vercel.app/user', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify({ email: user.email })
+        })
+            .then(res => res.json())
+            .then(data => setUserDetails(data))
+    }, [])
+
+
     useEffect(() => {
         fetch('https://triolingo-27485-abdur27485.vercel.app/classes')
             .then(res => res.json())
@@ -11,6 +29,7 @@ const Classes = () => {
                 setClasses(classes)
             })
     }, [])
+
 
     console.log(classes)
     return (
@@ -26,25 +45,7 @@ const Classes = () => {
                     :
                     <div className='grid grid-cols-1 lg:grid-cols-2 gap-4 gap-y-10'>
                         {
-                            classes.map(singleClass => {
-                                const { className, instructor, availableSeats, price, thumbnail } = singleClass
-                                return (
-                                    <div className='grid grid-cols-1 lg:grid-cols-10 gap-x-4 bg-gray-50 hover:shadow-md transition duration-100 rounded-xl'>
-                                        <div className='lg:col-span-4'>
-                                            <img src={thumbnail} className='h-full rounded-t-xl lg:rounded-s-xl lg:rounded-tr-none' alt="" />
-                                        </div>
-                                        <div className='lg:col-span-6 px-4 lg:px-0 py-2 lg:pr-4 h-full'>
-                                            <p className='font-semibold text-2xl'>{className}</p>
-                                            <h2 className='font-semibold text-base text-gray-600 ml-1 mt-1'>{instructor}</h2>
-                                            <p className='text-gray-500 mt-2'>{availableSeats} seats available</p>
-                                            <div className='flex items-end justify-between mt-4'>
-                                                <p className='mb-2 text-green-600 font-bold'>${price}</p>
-                                                <button className='btn btn-primary'>Select</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                )
-                            })
+                            classes.map(singleClass => <SingleClass singleClass={singleClass} userDetails={userDetails}></SingleClass>)
                         }
                         {/* <div className='grid grid-cols-1 lg:grid-cols-10 gap-x-4 bg-red-500 hover:shadow-md transition text-white duration-100 rounded-xl'>
                             <div className='lg:col-span-4'>

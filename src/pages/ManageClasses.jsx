@@ -1,4 +1,6 @@
+import { data } from 'autoprefixer';
 import React, { useEffect, useState } from 'react';
+import ManageSingleClass from '../components/ManageClasses/ManageSingleClass';
 
 const ManageClasses = () => {
     const [loadingClasses, setLoadingClasses] = useState(true)
@@ -10,7 +12,18 @@ const ManageClasses = () => {
                 setLoadingClasses(false)
                 setClasses(classes)
             })
-    }, [])
+    }, []);
+    const handleChangeStatus = (id, newStatus) => {
+        fetch('http://localhost:27485/class', {
+            method: 'PATCH',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify({ id, newStatus })
+        })
+            .then(res => res.json())
+            .then(data => console.log(data))
+    }
     return (
         <div className=''>
             {
@@ -29,37 +42,7 @@ const ManageClasses = () => {
                             </thead>
                             <tbody>
                                 {
-                                    classes.map(singleClass => {
-                                        const { className, status, thumbnail, price, availableSeats, instructor, instructorEmail } = singleClass;
-                                        return (
-                                            <tr className='hover:bg-slate-300'>
-                                                <td>
-                                                    <div className="flex items-center space-x-3">
-                                                        <div className="avatar">
-                                                            <div className="mask h-12 w-20">
-                                                                <img src={thumbnail} alt="Avatar Tailwind CSS Component" />
-                                                            </div>
-                                                        </div>
-                                                        <div>
-                                                            <div className="font-bold">{className}</div>
-                                                            <div className="text-sm  badge badge-primary mt-1">{status}</div>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                                <td className='text-green-600'>${price}</td>
-                                                <td>
-                                                    {instructor}
-                                                    <br />
-                                                    <span className="text-sm">{instructorEmail}</span>
-                                                </td>
-                                                <td>{availableSeats}</td>
-                                                <th className='flex gap-4'>
-                                                    <button disabled={status !== 'pending' && true} className="btn bg-white hover:bg-slate-700 hover:text-white btn-xs">Deny</button>
-                                                    <button disabled={status !== 'pending' && true}  className="btn bg-white hover:bg-slate-700 hover:text-white btn-xs">Approve</button>
-                                                </th>
-                                            </tr>
-                                        )
-                                    })
+                                    classes.map(singleClass => <ManageSingleClass singleClass={singleClass}></ManageSingleClass>)
                                 }
                             </tbody>
                         </table>
