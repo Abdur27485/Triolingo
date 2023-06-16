@@ -12,7 +12,7 @@ const ManageClasses = () => {
             })
     }, [])
     return (
-        <div>
+        <div className=''>
             {
                 classes ?
                     <div className="overflow-x-auto">
@@ -21,6 +21,7 @@ const ManageClasses = () => {
                             <thead className='bg-slate-700 text-white'>
                                 <tr>
                                     <th>Class</th>
+                                    <th>Price</th>
                                     <th>Instructor</th>
                                     <th>Seats Available</th>
                                     <th>Action</th>
@@ -45,6 +46,7 @@ const ManageClasses = () => {
                                                         </div>
                                                     </div>
                                                 </td>
+                                                <td className='text-green-600'>${price}</td>
                                                 <td>
                                                     {instructor}
                                                     <br />

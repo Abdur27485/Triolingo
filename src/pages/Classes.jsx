@@ -27,11 +27,11 @@ const Classes = () => {
                     <div className='grid grid-cols-1 lg:grid-cols-2 gap-4 gap-y-10'>
                         {
                             classes.map(singleClass => {
-                                const { className, instructor, availableSeats, price } = singleClass
+                                const { className, instructor, availableSeats, price, thumbnail } = singleClass
                                 return (
                                     <div className='grid grid-cols-1 lg:grid-cols-10 gap-x-4 bg-gray-50 hover:shadow-md transition duration-100 rounded-xl'>
                                         <div className='lg:col-span-4'>
-                                            <img src="https://i.ytimg.com/vi/o1IaduQICO0/maxresdefault.jpg" className='h-full rounded-t-xl lg:rounded-s-xl lg:rounded-tr-none' alt="" />
+                                            <img src={thumbnail} className='h-full rounded-t-xl lg:rounded-s-xl lg:rounded-tr-none' alt="" />
                                         </div>
                                         <div className='lg:col-span-6 px-4 lg:px-0 py-2 lg:pr-4 h-full'>
                                             <p className='font-semibold text-2xl'>{className}</p>
