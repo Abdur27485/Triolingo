@@ -48,7 +48,7 @@ const Navbar = ({ themeToggle, themeToggleFn }) => {
                         <>
                             <div className='flex gap-4 items-center'>
                                 <img src={`${user?.photoURL}`} className='w-6 h-6 lg:w-12 lg:h-12 rounded-full' alt="" />
-                                <button className='bg-base-200 px-2 py-1 lg:px-4 lg:py-2 rounded-md hover:bg-base-300 transition duration-100' onClick={() => logOutUser()}><FiLogOut className='h-6 w-6 lg:h-10 lg:w-10'></FiLogOut></button>
+                                <button className='bg-base-200 px-2 py-1 lg:px-4 lg:py-[6px] rounded-md hover:bg-base-300 transition duration-100' onClick={() => logOutUser()}><FiLogOut className='h-6 w-6 lg:h-8 lg:w-8'></FiLogOut></button>
                                 <label className="swap swap-rotate bg-gray-200 px-2 lg:px-4 lg:py-[6px] rounded-md hover:bg-gray-300 transition duration-100 py-1">
                                     <input onClick={() => themeToggleFn(!themeToggle)} type="checkbox" />
                                     {/* sun icon */}
