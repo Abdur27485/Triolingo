@@ -15,7 +15,7 @@ const Navbar = ({ themeToggle, themeToggleFn }) => {
                     <h1 className='text-lg lg:text-4xl font-mono font-extrabold bg-primary text-white px-2'>Triolingo</h1>
                 </Link>
                 {/* Navigation Links small */}
-                <div>
+                <div className='lg:hidden'>
                     <button onClick={() => setIsopen(!isOpen)} className='px-2 py-1 bg-base-200 mr-1 rounded-md'>
                         {isOpen ? <AiOutlineCloseCircle className='w-6 h-6'></AiOutlineCloseCircle>
                             :
