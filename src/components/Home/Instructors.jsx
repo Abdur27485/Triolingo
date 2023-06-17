@@ -1,5 +1,6 @@
 import { data } from 'autoprefixer';
 import React, { useEffect, useState } from 'react';
+import { Bounce, Fade, Slide } from 'react-awesome-reveal';
 
 const Instructors = () => {
     const [instructors, setInstructors] = useState(null);
@@ -15,17 +16,19 @@ const Instructors = () => {
             <div className='grid grid-cols-1 lg:grid-cols-3 gap-4'>
                 {
                     instructors?.map(instructor => {
-                        const {name, imgLink } = instructor;
+                        const { name, imgLink } = instructor;
 
                         return (
-                            <div>
+                            <Fade>
                                 <div>
-                                    <img src={imgLink.data.display_url} className='w-full max-h-64' alt="" />
+                                    <div>
+                                        <img src={imgLink.data.display_url} className='w-full max-h-64' alt="" />
+                                    </div>
+                                    <div className='w-full bg-black bg-opacity-100 p-4'>
+                                        <h2 className='font-bold text-2xl text-white'>{name}</h2>
+                                    </div>
                                 </div>
-                                <div className='w-full bg-black bg-opacity-100 p-4'>
-                                    <h2 className='font-bold text-2xl text-white'>{name}</h2>
-                                </div>
-                            </div>
+                            </Fade>
                         )
                     })
                 }
