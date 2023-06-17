@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../providers/AuthProvider';
 import SingleClass from '../components/Classes/SingleClass';
+import axios from 'axios';
 
 const Classes = () => {
     const {user} = useContext(AuthContext)
@@ -20,16 +21,13 @@ const Classes = () => {
             .then(data => setUserDetails(data))
     }, [])
 
-
-    useEffect(() => {
-        fetch('https://triolingo-27485-abdur27485.vercel.app/classes')
-            .then(res => res.json())
-            .then(classes => {
-                setLoadingClasses(false)
-                setClasses(classes)
-            })
-    }, [])
-
+    // axios get call
+    axios.get('https://triolingo-27485-abdur27485.vercel.app/classes')
+    .then(res => {
+        console.log(res)
+        setClasses(res);
+        setLoadingClasses(false)
+    })
 
     console.log(classes)
     return (
@@ -45,7 +43,7 @@ const Classes = () => {
                     :
                     <div className='grid grid-cols-1 lg:grid-cols-2 gap-4 gap-y-10'>
                         {
-                            classes.map(singleClass => <SingleClass singleClass={singleClass} userDetails={userDetails}></SingleClass>)
+                            classes.data.map(singleClass => <SingleClass singleClass={singleClass} userDetails={userDetails}></SingleClass>)
                         }
                         {/* <div className='grid grid-cols-1 lg:grid-cols-10 gap-x-4 bg-red-500 hover:shadow-md transition text-white duration-100 rounded-xl'>
                             <div className='lg:col-span-4'>
