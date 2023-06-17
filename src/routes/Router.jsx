@@ -9,6 +9,7 @@ import PrivateRoute from "./PrivateRoute";
 import Dashboard from "../pages/Dashboard";
 import ManageClasses from "../pages/ManageClasses";
 import ManageUsers from "../pages/ManageUsers";
+import NotFound from "../pages/NotFound";
 
 const router = createBrowserRouter([
     {
@@ -50,6 +51,10 @@ const router = createBrowserRouter([
                 ]
             }
         ]
+    },
+    {
+        path: '*',
+        element: <NotFound></NotFound>
     }
 ])
 
