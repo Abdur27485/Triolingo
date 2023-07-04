@@ -30,7 +30,7 @@ const AddClass = () => {
                     <label className="label">
                         <span className="label-text font-semibold">Instructor Name</span>
                     </label>
-                    <input type="text" {...register('className')} placeholder="Enter Class Name" className="input input-bordered w-full" />
+                    <input type="text" {...register('instructorName')} placeholder="Enter Class Name" className="input input-bordered w-full" />
                 </div>
                 <div className="form-control w-full col-span-2 lg:col-span-1">
                     <label className="label">

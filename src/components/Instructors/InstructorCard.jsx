@@ -5,7 +5,7 @@ const InstructorCard = ({data}) => {
     return (
         <div className='flex flex-col'>
         <div>
-            <img src={imgLink.data.display_url} className='rounded-2xl rounded-b-none max-h-64 w-full' alt="" />
+            <img src={imgLink.data?.display_url} className='rounded-2xl rounded-b-none max-h-64 w-full' alt="" />
         </div>
         <div className='border-2 rounded-t-none p-4 rounded-2xl w-full'>
             <h1 className='text-4xl font-bold text-primary'>{name}</h1>
